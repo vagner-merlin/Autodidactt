@@ -11,6 +11,8 @@ from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 
+from .forms import taskForm
+
 
 # Create your views here.
 # ejecutar cuando una utl sea visita
@@ -51,7 +53,9 @@ def signup(request):
 
 @login_required
 def tasks(request):
-    return render(request, 'tasks/tasks.html')
+    return render(request, 'tasks/tasks.html' , {
+        'form': taskForm()
+    })
 
 
 def logout_view(request):
@@ -79,3 +83,7 @@ def signin(request):
             login(request, user)
             return redirect('tasks')
         
+def create_task(request):
+    return render  (request, 'tasks/create_task.html', {
+        'form': taskForm()
+    })
