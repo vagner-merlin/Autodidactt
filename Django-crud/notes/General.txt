@@ -1,0 +1,30 @@
+CREACION DEL PROYECTO
+---------------------------------------------------------------------
+-> entorno virtual 
+py -m venv venv 
+
+-> activamos 
+buscamos active y le damos enter luego retornamos 
+
+-> instalamos django 
+pip install django 
+
+-> activamos el modulo principal 
+django-admin startproject name . /( el punto para crear afueras)
+
+-> cramos las apliaciones 
+python manage.py startapp name
+
+-> ejecutar django 
+python manage.py runserver
+---------------------------------------------------------------------
+BASE DE DATOS 
+---------------------------------------------------------------------
+-> sqlite3
+por defecto viene con esto pero se puede cambiar al subir a produccion 
+
+-> craer tablas 
+ se crae en models 
+ se actualiza con makemigrations 
+ se sube con migrate 
+ usando python manage.py

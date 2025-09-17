@@ -1,0 +1,15 @@
+crearmos un entorno virtusl usando pip 
+pip install virtualenv
+-> para ver version 
+virtualenv --version
+-> creamos carpeta 
+virtualenv (name)
+-> entramos a la ruta 
+cd (name)
+-> buscamo active
+entramos a la ruta y lo ejecutamos 
+-> y ya estariamos dentro del entorno virtual 
+
+->activarlo desde terminal 
+f1 > select interpreter 
+nos saldra una lista con la carpèta donde esta nuestra maquina virtual

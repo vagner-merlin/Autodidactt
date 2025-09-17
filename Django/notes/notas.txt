@@ -1,0 +1,18 @@
+permite usar una base de datos 
+evita reinventar 
+leer archivo
+cargar imagen 
+leer formulario o cargar 
+nos da la base para crear aplicacion web encima estan otro frawork 
+-> llamado django rest 
+----------------------------------------------------
+instalmos python 
+python y pip tenemos que tener para ejecutar 
+----------------------------------------------------
+organizando proyecto 
+entorno virtual !
+    en cada carpeta que creemos tendremos nuestra propio entorno virtual 
+esto investigar
+es aconsejable para no tener problemas entre despendencia 
+( es buena practica para crear un entorno aislado )
+-> luego buscamos la terminal y no saldra en el entrono virtual 

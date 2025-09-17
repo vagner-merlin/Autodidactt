@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projects Page</title>
+</head>
+<body>
+    {% extends 'layouts/base1.html' %}
+
+    {% block content %}
+    <h1> byvagner Projects </h1>
+
+     {% for project in projects %}
+     <article class="card">
+        <a href ="{% url 'projects_detail' project.id %}">
+            <h1>{{ project.name }}</h1>
+        </a>
+     </article>
+    
+     {% endfor %}
+
+     {% endblock %}
+</body>
+</html>

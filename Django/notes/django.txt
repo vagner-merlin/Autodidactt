@@ -1,0 +1,21 @@
+    -> crear django 
+    pip instal django 
+    -> comprobamos 
+    django-admin --version = 5.2.6
+    -> o entramos a python 
+    python 
+    import django 
+    django.get_version()
+    ->luego salimos 
+    exit()
+    ------------------------------------------------------
+    CREAR PROYECTO 
+
+    -> iniciar 
+    django-admin startproject (nombre del proyecto ) . ( para no crear carpeta y coloques ahi mismo)
+
+    -> ejecutar 
+    manage.py 
+    
+
+    

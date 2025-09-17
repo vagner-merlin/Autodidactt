@@ -1,0 +1,41 @@
+body {
+    background: #202020; /* Color de fondo */
+    color : whitesmoke /* Color del texto */
+}
+
+.navbar {
+    background: #404040; /* Color de fondo */
+    padding: 5px 0; /* Espaciado interno */
+
+}
+
+.navbar ul {
+    display: flex; /* Coloca los elementos en línea */
+    justify-content: space-between; /* Espacio entre los elementos */
+}
+
+.navbar ul li {
+    list-style: none; /* Elimina los puntos de la lista */
+}
+
+.navbar ul li a {
+    color : whitesmoke; /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.navbar ul li a:hover {
+    color : red; /* Color del texto al pasar el ratón */
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 20px 0; /* Espaciado interno */
+}
+
+.card { 
+    background: #404040; /* Color de fondo */
+    padding: 20px; /* Espaciado interno */
+    margin-bottom: 20px; /* Espaciado inferior */
+    border-radius: 8px; /* Bordes redondeados */
+}

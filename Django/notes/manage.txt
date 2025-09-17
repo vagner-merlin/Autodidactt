@@ -1,0 +1,22 @@
+SINTASIXXX
+------------------------------
+-> ejecutar archivo django 
+pytho manage.py runserver
+->MIGRACIONES 
+->PUERTOS 
+(para que funcione en otro puerto )
+python manage.oy runserver 3000(en el puerto 3000 va ejecutar)
+
+en django se le dice aplicaciones y lo podemos crear con 
+ 
+ python manage.py startapp blog
+
+ Byvagner-> seria como el nucleo donde podria todas las configuracions
+
+ -> migrate 
+
+
+ -> SHELL 
+practicamos para entrar y ver como insertar datos 
+lo guardamos en una variable y si hacemos .save() se guardia logicamente 
+

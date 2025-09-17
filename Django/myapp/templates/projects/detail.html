@@ -1,0 +1,24 @@
+{% extends 'layouts/base1.html' %}
+
+{% block content %}
+<h1>{{ project.name }}</h1>
+
+{% if tasks %}
+    {% for task in tasks %}
+        <div class="card">
+            <h2>{{ task.title }}</h2>
+            <p>{{ task.description }}</p>
+            {% if task.done %}
+                <span style="color: green;">✅ Completada</span>
+            {% else %}
+                <span style="color: orange;">⏰ Pendiente</span>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="no-tasks">
+        <p>No hay tareas asociadas a este proyecto por el momento.</p>
+        <a href="{% url 'create_tasks' %}" class="btn">Crear nueva tarea</a>
+    </div>
+{% endif %}
+{% endblock %}  

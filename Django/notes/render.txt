@@ -1,0 +1,11 @@
+-> templates
+es un nombre reservado donde podemos poner nuestro codigos "frontend" 
+ importamos render para poder debover pagina html para que despues podamos poner en la  vistas 
+
+ from django.shortcuts import render
+
+ ejemplo de como mandar 
+ def hello(request):
+    return render(request, 'index.html')
+
+para crear el templaets es importante hacerlo dentro del app

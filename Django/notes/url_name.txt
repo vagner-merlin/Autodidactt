@@ -1,0 +1,14 @@
+como nombras nuestras url 
+en la urls en el archivo qeu creamos es importa tener en cuenta los nombres 
+
+las url la declaramos con variables para no estar especificando cada rato que url es y a donde va!
+
+luego en la vistas especificamos que ya no se usa las urls sino su nombre
+
+luego podemos modificar la base donde tenemos todos los enlaces y usmos jinja porque es la parte del frontend
+
+jinja nos permite facilitar la comunicacion del backend y poder levantar todo en un programa 
+
+paso 1 -> NOMBRAS LAS URLS 
+paso 2 -> MODIFICAR LAS VISTAS SI ES NECESARIO
+paso 3 -> MODIFICAR LA BASE

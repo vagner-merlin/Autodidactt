@@ -1,0 +1,5 @@
+en las vistas tenemos un panel administrador
+para crear usuarios 
+python manage.py createsuperuser
+
+usamos un panel de admistrador donde podemos añadir panel y etc 

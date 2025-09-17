@@ -1,0 +1,30 @@
+-> base de datos 
+db.sqlite3
+    (base de datos por defecto creada por django )
+    se utiliza en desarrollo para produccion se cambia -> postgres
+
+-> ejecutador 
+manage.py
+
+-> Carpeta creado
+    pycache 
+        para guardar codigo que ya corrio python 
+    _init_.py 
+        sirve para decir que es un modulo como lo que instalamos 
+    asgi.
+    pysettings.py
+        este archivo para configurar todo el proyecto 
+            contiene un monton de variable 
+        allowed_host
+            = permite que direcciones tiene permito consular a nuestro servidor
+        Debug
+            especifica sie stamos en desarrollo o produccion
+                true = modo desarrollo 
+                contryecto
+                false = para decir que esta en desarrollo
+        secret_key
+            nos sirve para mejorar la incriptacion compartir datos entre navegador y servidor
+        install_apps
+            divide la aplicacion en multiple parte ( lo llama proyecto )
+            se dividen en distinta apliaciones 
+            

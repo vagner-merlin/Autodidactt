@@ -1,0 +1,75 @@
+--------------------------------
+views -
+--------------------------------
+aca podemos enviar archivos html
+creo la funciones dependiendo de lo que yo quiero que me debuelva ya sea un html etc
+llavamos al archivo principal a urls 
+urlpatterns = [
+    path('admin/', admin.site.urls),
+]
+en esta ruta organizamos todo lo que se vera!
+aca podemos traer todas las vistas que tenemos y conextar con el path 
+que consideramos necesario para el uso 
+
+en la vista igualmente podemos crear las vistas para nuestra aplicacion 
+
+def projects(request):
+    tilte = 'My Projects'
+    return render(request, 'projects.html', {
+        'tilte': tilte
+    }) 
+
+asi podemos meter datos entre comillas para que el archivo html lo
+detecte
+--------------------------------
+admin -
+--------------------------------
+para añadir un panel de administrador crear datos crear usuarios es para asignar los roles 
+podemos añadir modles es decir importar 
+
+desde admin ocupados el objetos para crear y registrar en el panel site registro 
+y colocamos los modulos
+
+--------------------------------
+apps
+--------------------------------
+configurar la aplicacion de la que creamos 
+
+
+--------------------------------
+models
+--------------------------------
+creo las tablas sql 
+podemos especificar los datos que vamos a guardar 
+
+creamos las tablas con class 
+tememos el modulo models ya importado 
+luego creamos las tablas y usamos mikamigrate (nombre de la app)
+migrate para que se actulice en la base de datos
+
+para gaurdar un datos es usando la clase models 
+luego lo asignamos a una variable y la guardamos!
+variable= Project(nombredelax="valor")
+
+podemos guardar un valor en una variable y isando un set podemos añadir!
+
+--------------------------------
+ordenar urls
+--------------------------------
+para evitar todo este afan lo que podemos hacer es crear una carpeta llamada urls.py o como queramos 
+y dentro de ahi podemos organizar las url de nuestra pagina web para evitrar problemas o mejor dicho para ahhorrar trabaho al poner todo en la urls del prouyecto principal 
+
+
+-------------------------------
+params 
+-------------------------------
+Como resivir datos de un damegador 
+podemos pasar parametro ( es decir valores de muchas manera )
+uan de ellas es porla url donde especificamos en el path que vamos a pasar path('ruta'<src int float = variable .etc>)
+luego al poner lo que especificamos en la utl de la web me debuelve ese valor 
+hasta lo podemos programar para que me muestre usando https response 
+usando las vistas de nuestra aplicacion hacemos un procesidimiento qeu aparte que recibe un request resiva una variable 
+y la mostramos en con %s
+-------------------------------
+params y models
+-------------------------------

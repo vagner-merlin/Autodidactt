@@ -1,0 +1,7 @@
+hay contenido estatico qeu no cambia como css 
+imagnes pdf 
+estos son los archivos estaticos
+
+por ejemplo cargar una imagen 
+
+en la documentacion de django ya tenemos configurado para poner datos estatico lo mejor es dentro de nuestra aplicacion hagamos una carpeta estatica y ahi ya sepamos si es pa imagen css o estatica

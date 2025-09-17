@@ -1,0 +1,4 @@
+podemos crear layouts. donde ahi adentro podemos poner las  paginas para poder ser vistas 
+en el tema de las herencias para las paginas web lo que podemos hacer es 
+referirnos a ellas craendo un enlace donde podamos conecectar todo mendiante codigo jinja {% %}
+a la ves solo tendriamos que arreglar 

@@ -1,0 +1,12 @@
+por defecto no dan una base de datos automatica!
+db sqlite3
+
+para migrar todo 
+makemigrations 
+migrate -> migra todo a la base de datos!
+
+vienen tabla en django ya podemos añadir luego 
+usamo models para esto 
+
+antes de hacer los migrate tiene que estar conectada tu aplicaion en las configuracion del nucleo es decir en 
+settings en INSTALLED_APPS

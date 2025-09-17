@@ -1,0 +1,11 @@
+Primero tenemos que crear formularios donde podemos almacenar informacion a registrar!
+
+para crear una nueva vista que tenemos que hacer
+-> crear el html -> crear el procedimiento dentro de views -> añadir a la url -> modificar la base de layouts (para poder ver las paginas)
+
+para crear formularios 
+->crear un projecto nuevo llamado forms.py
+-> diseñar que argumentos queremos guardar 
+-> unav es guardados entener que tipo de campos usaremos
+-> en la vistas meter este proyecto poo  
+-> luego crear el html correspondiendo para estar accion 

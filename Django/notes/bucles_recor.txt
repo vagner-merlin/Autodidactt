@@ -1,0 +1,6 @@
+para recorrer una lista usamos for en html para poder mostrar los dato se
+{% %}-> sintaxis para meter el bucle dentro del codigo
+
+usamos el siclo for
+for plural in singular 
+{{}} doble llave para llamar

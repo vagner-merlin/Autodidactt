@@ -1,0 +1,16 @@
+----------------------------------------------------
+urlpatterns = [
+    path('admin/', admin.site.urls),
+
+]
+aca podemops conectar todas las vistas posibles que queramos para usar en nuestro codigo 
+es decir que podemos hacer que se muestre primero que haremos que sea la principal 
+
+include( para incluir un bloque de urls)
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('myapp.urls'))
+]
+ejemplo si ahi antes del include pongo "vagner" todo lo que este dentro del include se vera luego de vagner

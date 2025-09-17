@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=byvagner
+      - POSTGRES_PASSWORD=adminn
+      - POSTGRES_DB=db
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "byvagner@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "adminn"
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres

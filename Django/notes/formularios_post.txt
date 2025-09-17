@@ -1,0 +1,6 @@
+en los formularios con post 
+es como crear entradas de datos y puedan ser enviado a la base de datos 
+lo que tenemos que hacer es crear un formulario 
+donde creamos como lo vamos a mostrar 
+luego eso lo llevamos ala vista donde hacemos una funcion con esa clase forms 
+leugo lo conectamos a html y usamos la sintaxis de jinja para mejorar 
