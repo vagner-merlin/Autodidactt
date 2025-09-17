@@ -6,3 +6,4 @@ class taskForm(ModelForm):
     class Meta:
         model = tasks  # Change Task to tasks
         fields = ['tilte', 'description', 'important']  # Fix typo in 'tilte' to 'title'
+ 

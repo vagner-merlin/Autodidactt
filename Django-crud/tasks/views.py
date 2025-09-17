@@ -53,7 +53,7 @@ def signup(request):
 
 @login_required
 def tasks(request):
-    return render(request, 'tasks/tasks.html' , {
+    return render(request, 'tasks/tasks.html', {
         'form': taskForm()
     })
 
@@ -82,8 +82,16 @@ def signin(request):
         else:
             login(request, user)
             return redirect('tasks')
-        
+
+
 def create_task(request):
-    return render  (request, 'tasks/create_task.html', {
-        'form': taskForm()
-    })
+    if request.method == 'GET':
+            return render(request, 'tasks/create_tasks.html', {
+            'form': taskForm()
+        })
+    else:
+        form = taskForm(request.POST)
+        new_task = form.save(commit=False)
+        new_task.user = request.user
+        new_task.save()
+        return redirect('tasks')
