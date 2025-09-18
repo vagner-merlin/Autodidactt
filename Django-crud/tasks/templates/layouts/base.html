@@ -5,14 +5,12 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Byvagner</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='static/css/main.css'>
 </head>
 <body>
     <nav>
         <ul>       
-            
-            {% if user.is_authenticated %}    
+            {% if request.user.is_authenticated %}    
                 <li>
                     <a href="{% url 'home' %}">Home</a>
                 </li>
@@ -20,22 +18,33 @@
                     <a href="{% url 'tasks' %}">Tasks</a>
                 </li>
                 <li>
-                    <a href="{% url 'logout' %}">Logout</a>
+                    <a href="{% url 'createT' %}">Create Task</a>
                 </li>
                 <li>
-                    <a href="{% url 'createT' %}">Create Task</a>
+                    <a href="{% url 'logout' %}">Logout</a>
                 </li>
             {% else %}
                 <li>
-                    <a href="{% url 'signin' %}">Signin</a>
+                    <a href="{% url 'signin' %}">Sign In</a>
                 </li>
                 <li>
-                    <a href="{% url 'signup' %}">Signup</a>
+                    <a href="{% url 'signup' %}">Sign Up</a>
                 </li>   
             {% endif %}
         </ul>
     </nav>
-    {% block content %}
-    {% endblock %}
+
+    <main>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>

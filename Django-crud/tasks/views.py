@@ -1,18 +1,17 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect , get_object_or_404
 # para renderizar un formulario de usuario
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 # usercraetion para crear un usuario y authenticationform para autenticar un usuario
-
+from .models import Task
+from django.utils import timezone
 # me va debolver un formuulario esto que importe
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
-
-from .forms import taskForm
-
+from .forms import TaskForm  # Corregir importación a TaskForm
 
 # Create your views here.
 # ejecutar cuando una utl sea visita
@@ -53,8 +52,12 @@ def signup(request):
 
 @login_required
 def tasks(request):
+    # filtrar las tareas por usuario
+    tasks_list = Task.objects.filter(user=request.user , datecompleted__isnull=True)
     return render(request, 'tasks/tasks.html', {
-        'form': taskForm()
+        'form': TaskForm(),
+        'tasks': tasks_list,
+        'user': request.user.username
     })
 
 
@@ -87,11 +90,47 @@ def signin(request):
 def create_task(request):
     if request.method == 'GET':
             return render(request, 'tasks/create_tasks.html', {
-            'form': taskForm()
+            'form': TaskForm()
         })
     else:
-        form = taskForm(request.POST)
-        new_task = form.save(commit=False)
-        new_task.user = request.user
-        new_task.save()
-        return redirect('tasks')
+        try:
+            form = TaskForm(request.POST)
+            new_task = form.save(commit=False)
+            new_task.user = request.user
+            new_task.save()
+            return redirect('tasks')
+        except :
+            return render(request, 'tasks/create_tasks.html', {
+                'form': TaskForm(),
+                'error': 'Por favor ingrese datos validos'
+            })
+
+
+def task_detail(request , task_id):
+    if request.method == 'GET':
+        task = get_object_or_404(Task, pk=task_id , user=request.user)
+        form = TaskForm(instance=task)
+        return render(request, 'tasks/task_detail.html', {
+            'task': task,
+            'form': form
+        })
+    else:
+        try:
+            task = get_object_or_404(Task, pk=task_id , user=request.user)
+            form = TaskForm(request.POST, instance=task)
+            form.save()
+            return redirect('tasks')
+        except ValueError:
+            return render(request, 'tasks/task_detail.html', {
+                'task': task,
+                'form': form,
+                'error': 'Error al actualizar la tarea'
+            })
+        
+
+def complet_tasks(request , task_id):
+    task = get_object_or_404(Task, pk=task_id , user=request.user)
+    if request.method == 'POST':
+        task.datecompleted = timezone.now()
+        task.save()
+        return redirect('tasks')     

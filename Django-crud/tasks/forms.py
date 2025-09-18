@@ -1,9 +1,8 @@
 #utilizaremos modulos 
 from django.forms import ModelForm
-from .models import tasks  # Change Task to tasks to match your model name
+from .models import Task  # Cambiar tasks por Task
 
-class taskForm(ModelForm):
+class TaskForm(ModelForm):  # Cambiar a PascalCase para seguir convenciones
     class Meta:
-        model = tasks  # Change Task to tasks
-        fields = ['tilte', 'description', 'important']  # Fix typo in 'tilte' to 'title'
- 
+        model = Task
+        fields = ['title', 'description', 'important']  # Corregir 'tilte' a 'title'

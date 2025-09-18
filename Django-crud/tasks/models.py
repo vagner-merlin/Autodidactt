@@ -1,13 +1,14 @@
 from django.db import models
-from django.contrib.auth.models import User #importa el modelo de usuario
+from django.contrib.auth.models import User
 
 # Create your models here.
-class tasks(models.Model):
-    tilte = models.CharField(max_length=200) #texto corto
-    description =  models.TextField() #texto mucho mas largo 
-    created = models.DateTimeField(auto_now_add=True) #fecha y hora de creacion por defecto  
-    datecompletd = models.DateTimeField(null=True) #fecha y hora de completado
-    important = models.BooleanField(default=False) #campo boleano verdadero o falso
-    user = models.ForeignKey( User , on_delete=models.CASCADE ) #relacion con el usuario es cascade para que si se borra el usuario se borren sus tareas
+class Task(models.Model):  # Debe ser Task en singular, no tasks
+    title = models.CharField(max_length=200)  # Corregir si está como 'tilte'
+    description = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    datecompleted = models.DateTimeField(null=True, blank=True)
+    important = models.BooleanField(default=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     def __str__(self):
-        return self.tilte + ' - ' + self.user.username #muestra el titulo y el usuario al que pertenece la tarea
+        return self.title  # muestra el titulo y el usuario al que pertenece la tarea

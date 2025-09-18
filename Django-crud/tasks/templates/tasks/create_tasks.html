@@ -11,8 +11,12 @@
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
 </head>
-<body>
+<body> 
         {% block content %}
+
+        {{ error }}
+        <h1>Create a New Task</h1>
+       
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
