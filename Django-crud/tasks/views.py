@@ -11,6 +11,7 @@ from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
+#login requerido para que el usuario este logeado 
 from .forms import TaskForm  # Corregir importación a TaskForm
 
 # Create your views here.
@@ -86,7 +87,7 @@ def signin(request):
             login(request, user)
             return redirect('tasks')
 
-
+@login_required
 def create_task(request):
     if request.method == 'GET':
             return render(request, 'tasks/create_tasks.html', {
@@ -105,7 +106,7 @@ def create_task(request):
                 'error': 'Por favor ingrese datos validos'
             })
 
-
+@login_required
 def task_detail(request , task_id):
     if request.method == 'GET':
         task = get_object_or_404(Task, pk=task_id , user=request.user)
@@ -127,10 +128,27 @@ def task_detail(request , task_id):
                 'error': 'Error al actualizar la tarea'
             })
         
-
+@login_required
 def complet_tasks(request , task_id):
     task = get_object_or_404(Task, pk=task_id , user=request.user)
     if request.method == 'POST':
         task.datecompleted = timezone.now()
         task.save()
         return redirect('tasks')     
+    
+@login_required    
+def delete_tasks(request , task_id):
+    task = get_object_or_404(Task, pk=task_id , user=request.user)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('tasks')
+    
+@login_required
+def tasks_Complet(request):
+    # filtrar las tareas por usuario
+    tasks_list = Task.objects.filter(user=request.user , datecompleted__isnull=False).order_by('-datecompleted')
+    return render(request, 'tasks/tasks.html', {
+        'form': TaskForm(),
+        'tasks': tasks_list,
+        'user': request.user.username
+    })
