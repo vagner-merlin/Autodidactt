@@ -1,13 +1,35 @@
 {% extends 'layouts/base.html' %}
 
-    {% block content %}
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-semibold text-center mb-6 text-purple-600">Create Account</h1>
 
-    <h1>SignUp!</h1>
-    {{error}}
-    <form method="POST">
-        {% csrf_token %} 
-        {{ form.as_p }} 
-        <button type="submit">Sign Up</button>
-    </form>  <!-- Añadir cierre del form -->
+    {% if error %}
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4">
+            {{ error }}
+        </div>
+    {% endif %}
 
-    {% endblock %}
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+        <div>
+            <label class="block text-gray-700 mb-2">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Choose a username">
+        </div>
+        <div>
+            <label class="block text-gray-700 mb-2">Password</label>
+            <input type="password" name="password1" class="form-control" placeholder="Create a password">
+        </div>
+        <div>
+            <label class="block text-gray-700 mb-2">Confirm Password</label>
+            <input type="password" name="password2" class="form-control" placeholder="Confirm your password">
+        </div>
+        <button class="w-full btn btn-primary">Sign Up</button>
+    </form>
+
+    <p class="mt-4 text-center text-gray-600">
+        Already have an account? 
+        <a href="{% url 'signin' %}" class="text-purple-600 hover:text-purple-700">Sign In</a>
+    </p>
+</div>
+{% endblock %}

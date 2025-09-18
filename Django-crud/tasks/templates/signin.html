@@ -1,14 +1,22 @@
 {% extends 'layouts/base.html' %}
 
-    {% block content %}
-        <h1>
-        SignIn!
-        {{error}}
-        </h1>
-        <form method="POST">
-            {% csrf_token %} 
-            {{ form.as_p }} 
-            <button type="submit">Sign In</button>
-        </form>    
-
-    {% endblock %}
+{% block content %}
+<div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <h1 class="text-2xl font-semibold text-center mb-6 text-purple-600">Sign In</h1>
+    
+    {{ error }}
+    
+    <form method="POST" class="space-y-4">
+        {% csrf_token %}
+        <div>
+            <label class="block text-gray-700 mb-2">Username</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter username">
+        </div>
+        <div>
+            <label class="block text-gray-700 mb-2">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter password">
+        </div>
+        <button class="w-full btn btn-primary">Sign In</button>
+    </form>
+</div>
+{% endblock %}

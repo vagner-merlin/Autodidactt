@@ -136,12 +136,7 @@ def complet_tasks(request , task_id):
         task.save()
         return redirect('tasks')     
     
-@login_required    
-def delete_tasks(request , task_id):
-    task = get_object_or_404(Task, pk=task_id , user=request.user)
-    if request.method == 'POST':
-        task.delete()
-        return redirect('tasks')
+
     
 @login_required
 def tasks_Complet(request):
@@ -152,3 +147,11 @@ def tasks_Complet(request):
         'tasks': tasks_list,
         'user': request.user.username
     })
+
+@login_required
+def delete_task(request, task_id):
+    task = get_object_or_404(Task, pk=task_id, user=request.user)
+    if request.method == 'POST':
+        task.delete()
+        return redirect('tasks')
+    return redirect('task_detail', task_id=task_id)

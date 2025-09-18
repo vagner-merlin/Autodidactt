@@ -3,44 +3,35 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Byvagner</title>
+    <title>Task Manager</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='static/css/main.css'>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel='stylesheet' type='text/css' media='screen' href='/static/styles/main.css'>
 </head>
-<body>
-    <nav>
-        <ul>       
+<body class="bg-purple-100 min-h-screen">
+    <nav class="bg-purple-600 p-4 shadow-lg">
+        <ul class="container mx-auto flex items-center justify-end gap-6 text-white">       
             {% if request.user.is_authenticated %}    
-                <li>
-                    <a href="{% url 'home' %}">Home</a>
-                </li>
-                <li>
-                    <a href="{% url 'tasks' %}">Tasks</a>
-                </li>
-                <li>
-                    <a href="{% url 'tasks_complet' %}">Tareas Completadas</a>
-                </li>
-                <li>
-                    <a href="{% url 'createT' %}">Create Task</a>
-                </li>
-                <li>
-                    <a href="{% url 'logout' %}">Logout</a>
-                </li>
+                <li><a href="{% url 'home' %}" class="hover:text-purple-200 transition-colors">Home</a></li>
+                <li><a href="{% url 'tasks' %}" class="hover:text-purple-200 transition-colors">Tasks</a></li>
+                <li><a href="{% url 'tasks_complet' %}" class="hover:text-purple-200 transition-colors">Completed Tasks</a></li>
+                <li><a href="{% url 'createT' %}" class="hover:text-purple-200 transition-colors">Create Task</a></li>
+                <li><a href="{% url 'logout' %}" class="bg-purple-700 px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors">Logout</a></li>
             {% else %}
-                <li>
-                    <a href="{% url 'signin' %}">Sign In</a>
-                </li>
-                <li>
-                    <a href="{% url 'signup' %}">Sign Up</a>
-                </li>   
+                <li><a href="{% url 'signin' %}" class="hover:text-purple-200 transition-colors">Sign In</a></li>
+                <li><a href="{% url 'signup' %}" class="bg-purple-700 px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors">Sign Up</a></li>
             {% endif %}
         </ul>
     </nav>
 
-    <main>
+    <main class="container mx-auto mt-8 px-4">
         {% if messages %}
             {% for message in messages %}
-                <div class="alert alert-{{ message.tags }}">
+                <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4">
                     {{ message }}
                 </div>
             {% endfor %}

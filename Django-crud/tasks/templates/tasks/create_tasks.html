@@ -1,12 +1,35 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-     {{ error }}
-        <h1>Create a New Task</h1>
-       
-            <form method="POST">
-                {% csrf_token %}
-                {{ form.as_p }}
-                     <button type="submit">Create Task</button>
-            </form>
- {% endblock %}    
+<div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+    <h1 class="text-3xl font-semibold text-purple-600 mb-6">Create New Task</h1>
+
+    {% if error %}
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4">
+            {{ error }}
+        </div>
+    {% endif %}
+
+    <form method="POST" class="space-y-6">
+        {% csrf_token %}
+        <div>
+            <label class="block text-gray-700 mb-2 font-medium">Title</label>
+            {{ form.title.errors }}
+            {{ form.title }}
+        </div>
+        <div>
+            <label class="block text-gray-700 mb-2 font-medium">Description</label>
+            {{ form.description.errors }}
+            {{ form.description }}
+        </div>
+        <div class="flex items-center gap-2">
+            {{ form.important.errors }}
+            {{ form.important }}
+            <label class="text-gray-700">Mark as important</label>
+        </div>
+        <button class="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors">
+            Create Task
+        </button>
+    </form>
+</div>
+{% endblock %}
